@@ -13,7 +13,7 @@ do
             printf "\n"
             echo "Available options:"
             printf "\n"
-            echo "-host or -h: IP or hostname of remote machine"
+            echo "-host or -h: IP or hostname of remote machine with username, format: root@10.0.23.12"
             echo "-kp: SSH keys location, default value: ~/.ssh/id_rsa.pub"
             echo "-help: help"
             printf "\n"
@@ -30,6 +30,6 @@ do
     shift
 done
 
-ssh-copy-id -i $KEYS_LOCATION root@$HOST
+ssh-copy-id -i $KEYS_LOCATION $HOST
 eval `ssh-agent`
 ssh-add $KEYS_LOCATION
